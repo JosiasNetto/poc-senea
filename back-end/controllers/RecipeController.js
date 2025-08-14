@@ -7,6 +7,7 @@ class RecipeController {
 
     // POST /gerarReceita
     generateRecipe = async (req, res) => {
+        console.log("Dados recebidos para gerar receita:", req.body, "SOPA DEAMCACOOOO");
         try {
             const { cpf, preferences } = req.body;
 

@@ -3,7 +3,7 @@ import FormService from '../services/FormService.js';
 class FormController {
     constructor() {
         this.formService = new FormService();
-    }
+    }   
 
     // POST /forms
     createForm = async (req, res) => {

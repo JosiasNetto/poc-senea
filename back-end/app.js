@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import connectDB from "./config/dbConfig.js";
 import setupRoutes from './routes/index.js';
 
@@ -6,6 +7,13 @@ import setupRoutes from './routes/index.js';
 connectDB();
 
 const app = express();
+
+// CORS Middleware - Allow requests from frontend
+const corsOptions = {
+  origin: '*'
+};
+
+app.use(cors(corsOptions));
 
 // Middleware
 app.use(express.json());
