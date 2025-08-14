@@ -1,6 +1,7 @@
 import userRoutes from './userRoutes.js';
 import formRoutes from './formRoutes.js';
 import recipeRoutes from './recipeRoutes.js';
+import foodRoutes from './foodRoutes.js';
 import express from 'express';
 import RecipeController from '../controllers/RecipeController.js';
 
@@ -24,6 +25,7 @@ const setupRoutes = (app) => {
                 users: '/users',
                 forms: '/forms',
                 recipes: '/recipes',
+                foods: '/foods',
                 gerarReceita: '/gerarReceita'
             }
         });
@@ -37,6 +39,9 @@ const setupRoutes = (app) => {
     
     // Recipe routes
     app.use('/recipes', recipeRoutes);
+    
+    // Food routes
+    app.use('/foods', foodRoutes);
     
     // Backward compatibility for /gerarReceita
     const recipeController = new RecipeController();

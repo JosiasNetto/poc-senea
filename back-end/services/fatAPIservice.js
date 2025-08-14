@@ -161,6 +161,32 @@ class FatSecretAPIService {
       recipeDesc.includes(allergen.toLowerCase())
     );
   }
+
+  // Método para buscar alimentos
+  async searchFoods(searchExpression, maxResults = 10, pageNumber = 0) {
+    const url = 'https://platform.fatsecret.com/rest/foods/search/v1';
+    
+    const params = {
+      search_expression: searchExpression,
+      max_results: maxResults,
+      page_number: pageNumber,
+      format: 'json',
+      oauth_consumer_key: this.consumerKey,
+      oauth_nonce: crypto.randomBytes(16).toString('hex'),
+      oauth_signature_method: 'HMAC-SHA1',
+      oauth_timestamp: Math.floor(Date.now() / 1000),
+      oauth_version: '1.0'
+    };
+
+    params.oauth_signature = this.generateSignature('GET', url, params);
+
+    try {
+      const response = await axios.get(url, { params });
+      return response.data;
+    } catch (error) {
+      throw new Error(`Erro ao buscar alimentos: ${error.message}`);
+    }
+  }
 }
 
 
