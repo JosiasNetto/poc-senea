@@ -240,10 +240,7 @@ export const Pacientes = () => {
                     <div className="space-y-1">
                       <h3 className="text-lg font-semibold text-foreground">{paciente.nome}</h3>
                       <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                        <span>{paciente.idade} anos</span>
-                        <span>•</span>
-                        <span>{paciente.sexo}</span>
-                        <span>•</span>
+                        
                         <span>Última consulta: {new Date(paciente.ultimaConsulta).toLocaleDateString('pt-BR')}</span>
                       </div>
                     </div>

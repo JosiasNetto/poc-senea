@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
-import { ClipboardList, Users, FileText } from "lucide-react";
+import { ClipboardList, Users, FileText, Search } from "lucide-react";
 
 export const Dashboard = () => {
   const navigate = useNavigate();
@@ -21,7 +21,13 @@ export const Dashboard = () => {
       path: "/pacientes",
       variant: "card" as const
     },
-
+    {
+      title: "Busca Alimentos",
+      description: "Pesquisar informações nutricionais",
+      icon: Search,
+      path: "/busca-alimentos",
+      variant: "card" as const
+    },
   ];
 
   return (

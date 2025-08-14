@@ -377,6 +377,31 @@ class ApiService {
     // This route works the same as generateRecipes for compatibility
     return this.generateRecipes(recipeData);
   }
+
+  // Food search endpoint
+  async searchFoods(searchExpression: string, maxResults: number = 10, pageNumber: number = 0) {
+    try {
+      const queryParams = new URLSearchParams({
+        search_expression: searchExpression,
+        max_results: maxResults.toString(),
+        page_number: pageNumber.toString()
+      });
+
+      const response = await fetch(`${API_BASE_URL}/foods/search?${queryParams}`, {
+        method: 'GET',
+        headers: this.getHeaders(),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      return await response.json();
+    } catch (error) {
+      console.error('Erro ao buscar alimentos:', error);
+      return { error: 'Erro ao buscar alimentos' };
+    }
+  }
 }
 
 export const apiService = new ApiService();

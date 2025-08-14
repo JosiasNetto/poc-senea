@@ -7,7 +7,8 @@ import {
   ClipboardList, 
   Home,
   Menu,
-  X
+  X,
+  Search
 } from "lucide-react";
 
 export const Navigation = () => {
@@ -19,6 +20,7 @@ export const Navigation = () => {
     { path: "/", label: "Dashboard", icon: Home },
     { path: "/formulario", label: "Nova Consulta", icon: ClipboardList },
     { path: "/pacientes", label: "Pacientes", icon: Users },
+    { path: "/busca-alimentos", label: "Busca Alimentos", icon: Search },
   ];
 
   const isActivePath = (path: string) => location.pathname === path;
