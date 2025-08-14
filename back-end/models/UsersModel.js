@@ -10,6 +10,11 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, 'O CPF é obrigatório.']
   },
+  fatSecretUserId: {
+    type: String,
+    unique: true,
+    sparse: true // Allows null values but ensures uniqueness when present
+  },
   forms: {
     type: [mongoose.Schema.Types.Mixed],
     default: []
