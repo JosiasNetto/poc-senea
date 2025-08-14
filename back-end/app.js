@@ -10,6 +10,10 @@ const app = express();
 
 app.use(express.json());
 
+app.post('/gerarReceita', async(req, res) =>{
+    
+})
+
 app.post('/forms', async (req, res) => {
     const { cpf, nome } = req.body;
     const formData = req.body.forms;
