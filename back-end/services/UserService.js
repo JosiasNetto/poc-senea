@@ -102,9 +102,9 @@ class UserService {
     async createFatSecretProfile(user_id) {
         const url = 'https://platform.fatsecret.com/rest/profile/v1';
         
-        // Get FatSecret credentials from environment or use defaults
-        const consumerKey = process.env.FAT_SECRET_CONSUMER_KEY || "7ef452824e4b47cfb0274ac44014a0ca";
-        const consumerSecret = process.env.FAT_SECRET_CONSUMER_SECRET || "dba0feedca144e9b86e7f2c385a6e7d8";
+        // Get FatSecret credentials from environment
+        const consumerKey = process.env.FAT_SECRET_CONSUMER_KEY;
+        const consumerSecret = process.env.FAT_SECRET_CONSUMER_SECRET;
         
         const params = {
             method: 'profile.create',
